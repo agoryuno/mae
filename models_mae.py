@@ -18,14 +18,40 @@ from timm.models.vision_transformer import PatchEmbed, Block
 
 from util.pos_embed import get_2d_sincos_pos_embed
 
+class AutoregAutoencoderViT(nn.Module):
+    def __init__(
+                 self, 
+                 img_size: int, 
+                 patch_size: int = 16,
+                 in_chans: int = 3,
+                 embed_dim: int = 1024,
+                 depth: int = 24,
+                 num_heads: int = 16,
+                 decoder_embed_dim: int = 512,
+                 decoder_depth: int = 8,
+                 decoder_num_heads: int = 16,
+                 mlp_ratio: float = 4.,
+                 norm_layer: nn.Module = nn.LayerNorm,
+                 norm_pix_loss: bool = False):
+        super().__init__()
 
 class MaskedAutoencoderViT(nn.Module):
     """ Masked Autoencoder with VisionTransformer backbone
     """
-    def __init__(self, img_size=224, patch_size=16, in_chans=3,
-                 embed_dim=1024, depth=24, num_heads=16,
-                 decoder_embed_dim=512, decoder_depth=8, decoder_num_heads=16,
-                 mlp_ratio=4., norm_layer=nn.LayerNorm, norm_pix_loss=False):
+    def __init__(
+                 self, 
+                 img_size: int, 
+                 patch_size: int = 16,
+                 in_chans: int = 3,
+                 embed_dim: int = 1024,
+                 depth: int = 24,
+                 num_heads: int = 16,
+                 decoder_embed_dim: int = 512,
+                 decoder_depth: int = 8,
+                 decoder_num_heads: int = 16,
+                 mlp_ratio: float = 4.,
+                 norm_layer: nn.Module = nn.LayerNorm,
+                 norm_pix_loss: bool = False):
         super().__init__()
 
         # --------------------------------------------------------------------------
